@@ -1,6 +1,22 @@
 # coffee-code
 Coffee and code event main repository
 
+--- 
+## Pre-Work
+
+1. Create an account on github.com if you don't already have one
+2. Send your github username to leon@centerforcivicfutures.org
+3. Make sure you can access []()
+
+---
+## Working with GitHub Codespaces
+
+1. Navigate to https://github.com/CCF-AI-Officers-Summit-2026/coffee-code
+2. Click on _Create Codespace on main_ to create a cloud-based development environment.
+3. Install your favorite AI coding assistant
+4. Shut down your codespace when you aren't using it.
+5. Manage your codespaces or return to a paused instance [here](https://github.com/codespaces)
+
 ---
 
 ## 🧑‍💻 Working with GitHub
