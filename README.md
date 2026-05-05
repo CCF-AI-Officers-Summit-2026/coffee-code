@@ -116,7 +116,7 @@ git push origin my-branch
 
 ---
 
-## 🧠 Tips
+### 🧠 Tips
 
 * ✅ Pull often to avoid conflicts
 * ✅ Keep PRs small and focused
@@ -126,21 +126,21 @@ git push origin my-branch
 
 ---
 
-## 🆘 Common Fixes
+### 🆘 Common Fixes
 
-### Undo last commit (keep changes)
+#### Undo last commit (keep changes)
 
 ```bash
 git reset --soft HEAD~1
 ```
 
-### Check current status
+#### Check current status
 
 ```bash
 git status
 ```
 
-### See branches
+#### See branches
 
 ```bash
 git branch
