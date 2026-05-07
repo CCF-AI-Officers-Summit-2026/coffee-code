@@ -161,5 +161,8 @@ git status
 ```bash
 git branch
 ```
-
 ---
+
+## Useful Resources
+
+* [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy) to convert between stdio and http protocols for MCP server access.
