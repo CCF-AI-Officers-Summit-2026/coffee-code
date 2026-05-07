@@ -12,7 +12,8 @@ Coffee and code event main repository
 ## Working with GitHub Codespaces
 
 1. Navigate to https://github.com/CCF-AI-Officers-Summit-2026/coffee-code
-2. Click on _Create Codespace on main_ to create a cloud-based development environment.
+2. Click on _Create Codespace on main_ to create a cloud-based development environment. 
+<img src="assets/CreateCodespace.png" height="400">
 3. Install your favorite AI coding assistant
 4. Shut down your codespace when you aren't using it.
 5. Manage your codespaces or return to a paused instance [here](https://github.com/codespaces)
