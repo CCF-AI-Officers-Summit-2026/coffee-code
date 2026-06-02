@@ -5,8 +5,8 @@ Coffee and code event main repository
 ## Pre-Work
 
 1. Create an account on github.com if you don't already have one
-2. Send your github username to leon@centerforcivicfutures.org
-3. Make sure you can access []()
+2. Send your github username to leon@centerforcivicfutures.org so he can add you to the github organization that we've set up for the event
+3. Make sure you can run a github codespace (see below).
 
 ---
 ## Working with GitHub Codespaces
