@@ -156,5 +156,131 @@ async def get_policy(policy_number: str) -> str:
     return f"Policy '{policy_number}' not found. Available policies: {', '.join(available)}"
 
 
+@mcp.tool()
+async def compare_policies(query: str) -> str:
+    """Find which Oregon IT policies mention a topic and how prominently.
+
+    Unlike search_policies (which returns excerpts), this gives a bird's-eye
+    view: every policy that mentions the query, ranked by how many times the
+    topic appears. Use this to understand which policies are most relevant
+    to a topic before diving into details.
+
+    Args:
+        query: Topic to search for (e.g., "encryption", "cloud", "training", "PII")
+    """
+    query_lower = query.lower()
+    hits = []
+
+    for policy in POLICIES:
+        text_lower = policy["text"].lower()
+        count = text_lower.count(query_lower)
+        if count > 0:
+            hits.append({
+                "policy_number": policy["number"],
+                "policy_title": policy["title"],
+                "mentions": count,
+            })
+
+    if not hits:
+        return f"No policies mention '{query}'."
+
+    hits.sort(key=lambda h: h["mentions"], reverse=True)
+    return json.dumps({
+        "query": query,
+        "policies_matched": len(hits),
+        "results": hits,
+    }, indent=2)
+
+
+# Section headers commonly found in Oregon IT policies
+SECTION_HEADERS = [
+    "PURPOSE",
+    "APPLICABILITY",
+    "DEFINITIONS",
+    "GENERAL INFORMATION",
+    "RESPONSIBILITY",
+    "REFERENCE",
+    "PROCEDURE",
+    "EXCLUSIONS AND SPECIAL SITUATIONS",
+    "FORMS/EXHIBITS/INSTRUCTIONS",
+]
+
+
+def _extract_sections(text: str) -> dict:
+    """Split policy text into named sections based on standard headers."""
+    import re
+    lines = text.split("\n")
+    sections = {}
+    current_section = None
+    current_lines = []
+
+    for line in lines:
+        stripped = line.strip()
+        # Check if this line is a section header
+        matched_header = None
+        for header in SECTION_HEADERS:
+            if stripped.upper() == header or stripped.upper().startswith(header + " "):
+                matched_header = header
+                break
+
+        if matched_header:
+            # Save previous section
+            if current_section:
+                sections[current_section] = "\n".join(current_lines).strip()
+            current_section = matched_header.title()
+            current_lines = []
+        elif current_section:
+            current_lines.append(line)
+
+    # Save the last section
+    if current_section:
+        sections[current_section] = "\n".join(current_lines).strip()
+
+    return sections
+
+
+@mcp.tool()
+async def get_policy_section(policy_number: str, section: str = "") -> str:
+    """Get a specific section from an Oregon IT policy.
+
+    Instead of reading the full policy, pull out just the section you need.
+    Common sections: Purpose, Applicability, Definitions, General Information,
+    Responsibility, Reference, Procedure.
+
+    Args:
+        policy_number: The policy number (e.g., "107-004-052")
+        section: Section name to extract (e.g., "Purpose", "Definitions"). Leave blank to list available sections.
+    """
+    for policy in POLICIES:
+        if policy["number"] == policy_number or policy["id"] == policy_number:
+            sections = _extract_sections(policy["text"])
+
+            if not section:
+                return json.dumps({
+                    "policy_number": policy["number"],
+                    "policy_title": policy["title"],
+                    "available_sections": list(sections.keys()),
+                }, indent=2)
+
+            # Fuzzy match the section name
+            section_lower = section.lower()
+            for name, content in sections.items():
+                if section_lower in name.lower():
+                    return json.dumps({
+                        "policy_number": policy["number"],
+                        "policy_title": policy["title"],
+                        "section": name,
+                        "content": content,
+                    }, indent=2)
+
+            return json.dumps({
+                "error": f"Section '{section}' not found in policy {policy_number}.",
+                "available_sections": list(sections.keys()),
+            }, indent=2)
+
+    available = [p["number"] for p in POLICIES]
+    return f"Policy '{policy_number}' not found. Available policies: {', '.join(available)}"
+
+
 if __name__ == "__main__":
     mcp.run()
