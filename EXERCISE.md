@@ -3,7 +3,7 @@
 
 ## Overview
 
-In this exercise, you'll improve access to public information by building an [MCP server](https://modelcontextprotocol.io/docs/learn/server-concepts) that exposes published state data to agentic AI applications. Along the way, you'll have a chance to try out the latest AI coding tools and get advice from engineers from top labs.
+In this exercise, you'll improve access to public information by building an [MCP server](https://modelcontextprotocol.io/docs/learn/server-concepts) that integrated published state data with agentic AI applications. Along the way, you'll have a chance to try out the latest AI coding tools and get advice from engineers from top labs.
 
 
 ## 1. Setup
@@ -56,7 +56,7 @@ Use your preferred AI coding assistant to create an MCP server that exposes your
 5. Review the generated code. Does it seem correct and well designed? Are there any changes you'd want to make? Try asking your AI coding agent questions about the implementation. For example, is it a stdio or streamable HTTP server?
 6. To interact with your new MCP server, you'll need a client. [mcp-inspector](https://github.com/modelcontextprotocol/inspector) can be a useful tool for seeing what interfaces your server exposes and inspecting responses. To invoke it, run `npx @modelcontextprotocol/inspector` You can then give the web UI the command to start your MCP server. 
 
-Once you're satisfied, make sure you leave a README file that helps others install and reuse the server. This is also a good time to check in your code and submit a pull request to merge with the main repository. See [README.md](README.md) for a quick cheat sheet on how to do this.
+Once you're satisfied, make sure you leave a README file that helps others install and reuse the server. Tip: ask your coding assistant for help with this if it hasn't already done so. This is also a good time to check in your code and submit a pull request to merge with the main repository. See [README.md](README.md) for a quick cheat sheet on how to do this.
 
 
 ## 5. Connect your MCP server to an AI agent
