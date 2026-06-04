@@ -5,6 +5,11 @@
 This project builds a small MCP server for the New York State Department of
 Health dataset, **Food Service Establishment: Last Inspection**.
 
+![Example of the NY food inspections MCP server returning Albany inspection results](example.png)
+
+Example: using the MCP server to search Albany food service establishments with
+at least one critical violation.
+
 Project creator: Albert Pulido, New York State Deputy Secretary for Finance & Technology
 Tech Support by [Mark Headd](https://github.com/mheadd) 
 Created with [Codex](https://chatgpt.com/codex/) in the [Codex VS Code plugin](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) using GPT-5.
