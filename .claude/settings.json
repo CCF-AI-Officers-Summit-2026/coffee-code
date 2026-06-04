@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "or-it-policies": {
+      "command": "/Users/NikBlosser/claude-coffee-code/or-it-policies/.venv/bin/python",
+      "args": ["server.py"],
+      "cwd": "/Users/NikBlosser/claude-coffee-code/or-it-policies"
+    },
+    "or-data-inventory": {
+      "command": "/Users/NikBlosser/claude-coffee-code/or-data-inventory/.venv/bin/python",
+      "args": ["server.py"],
+      "cwd": "/Users/NikBlosser/claude-coffee-code/or-data-inventory"
+    }
+  }
+}
