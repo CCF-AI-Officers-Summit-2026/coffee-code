@@ -5,6 +5,7 @@ Health dataset, **Food Service Establishment: Last Inspection**.
 
 Project creator: Albert Pulido, New York State Deputy Secretary for Finance & Technology
 Tech Support by [Mark Headd](https://github.com/mheadd) 
+Created with [Codex](https://chatgpt.com/codex/) in the [Codex VS Code plugin](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) using GPT-5.
 
 Dataset page:
 https://health.data.ny.gov/Health/Food-Service-Establishment-Last-Inspection/cnih-y5dw/about_data
