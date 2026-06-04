@@ -99,6 +99,8 @@ Prepare a short 2-3 minute demo that showcases your work. Consider:
 
 Keep the demo focused. A good demo addresses one clear need well.
 
+Show your demo to some of your peers. We'll pick a few to showcase on stage during Friday's closing sessions.
+
 
 ## 8.Follow-On Improvements
 
