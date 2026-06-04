@@ -1,5 +1,7 @@
 # NY Food Service Inspection MCP Server
 
+[![Created with Codex](https://img.shields.io/badge/Created%20with-Codex-000000?logo=openai&logoColor=white)](https://chatgpt.com/codex/)
+
 This project builds a small MCP server for the New York State Department of
 Health dataset, **Food Service Establishment: Last Inspection**.
 
